@@ -18,16 +18,17 @@ android {
 
     signingConfigs {
         release {
-            storeFile System.getProperty('keystore')
-            storePassword System.getProperty('storepass')
+            storeFile file(project.properties['keystore'])
+            storePassword project.properties['storepass']
             keyAlias 'droidcon2016'
-            keyPassword System.getProperty('keypass')
+            keyPassword project.properties['keypass']
         }
     }
 
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.pro'
             signingConfig signingConfigs.release
         }
