@@ -1,0 +1,43 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = '0.7.7.201606060606'
+}
+
+project.afterEvaluate {
+    android.buildTypes.all { variant ->
+        def variantName = variant.name.capitalize()
+        project.tasks.create("jacoco${variantName}Report", JacocoReport) {
+            group = "Reporting"
+            description = "Generate Jacoco coverage reports on the ${variantName} build."
+
+            jacocoClasspath = project.configurations['androidJacocoAnt']
+
+            sourceDirectories = fileTree(dir: "${project.projectDir}/src/main/java")
+            classDirectories = fileTree(dir: "${project.buildDir}/intermediates/classes/${variant.name}", excludes: [
+                    '**/R.class',
+                    '**/R$*.class',
+                    '**/BuildConfig.*',
+                    '**/Manifest*.*',
+                    '**/*Test*.*',
+                    'android/**/*.*'
+            ])
+            executionData = fileTree(dir: project.buildDir, includes: ['**/*.exec', '**/*.ec'])
+
+            reports {
+                xml.enabled = true
+                html.enabled = true
+            }
+
+            doLast {
+                def index = file("${jacoco.reportsDir}/jacoco${variantName}Report/html/index.html")
+                def matcher = (index.text =~ /Total.*?([0-9]{1,3})%/)
+                if (matcher.find()) {
+                    println("Coverage: ${matcher.group(1)}%")
+                }
+            }
+
+            dependsOn "test${variantName}UnitTest"
+        }
+    }
+}

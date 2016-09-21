@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="listItemTitle">@style/TextAppearance.ListTitle</item>
+        <item name="listItemSubtitle">@style/TextAppearance.ListSubtitle</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <declare-styleable name="AppTheme">
+        <attr name="listItemTitle" format="reference" />
+        <attr name="listItemSubtitle" format="reference" />
+    </declare-styleable>
+
+    <style name="TextAppearance.ListTitle" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.ListSubtitle" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/colorTextSecondary</item>
+    </style>
+
+</resources>

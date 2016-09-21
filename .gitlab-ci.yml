@@ -1,0 +1,36 @@
+stages:
+  - clean
+  - build
+  - test
+
+cleanup:
+  stage: clean
+  script:
+    - ./gradlew clean
+
+assembleDebug:
+  stage: build
+  script:
+    - ./gradlew assembleDebug
+  artifacts:
+    paths:
+      - app/build
+  except:
+    - tags
+
+assembleRelease:
+  stage: build
+  script:
+    - ./gradlew assembleRelease
+  artifacts:
+    paths:
+      - app/build
+
+unitTest:
+  stage: test
+  script:
+    - ./gradlew jacocoDebugReport
+  dependencies:
+    - assembleDebug
+  except:
+    - tags
