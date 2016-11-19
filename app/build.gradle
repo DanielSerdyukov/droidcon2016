@@ -56,7 +56,7 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.10'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.lapism:searchview:3.6'
+    compile 'com.lapism:searchview:4.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:2.1.0-RC.1'
     testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'

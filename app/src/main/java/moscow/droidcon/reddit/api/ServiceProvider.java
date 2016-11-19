@@ -1,6 +1,5 @@
 package moscow.droidcon.reddit.api;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.google.gson.GsonBuilder;
@@ -23,7 +22,7 @@ public class ServiceProvider {
 
     private static Retrofit sRetrofit;
 
-    public static void init(@NonNull Context context) {
+    public static void init() {
         if (sRetrofit == null) {
             sRetrofit = new Retrofit.Builder()
                     .client(new OkHttpClient.Builder()
