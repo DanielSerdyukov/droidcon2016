@@ -1,6 +1,5 @@
 package moscow.droidcon.reddit.repository;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 
 import moscow.droidcon.reddit.api.ServiceProvider;
@@ -10,8 +9,8 @@ import moscow.droidcon.reddit.api.ServiceProvider;
  */
 public class Repository {
 
-    public static void init(@NonNull Context context) {
-        ServiceProvider.init(context);
+    public static void init() {
+        ServiceProvider.init();
     }
 
     @NonNull

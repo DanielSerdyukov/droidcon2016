@@ -16,7 +16,7 @@ public class RedditApp extends Application {
         if (BuildConfig.DEBUG) {
             StrictMode.enableDefaults();
         }
-        Repository.init(this);
+        Repository.init();
     }
 
 }
